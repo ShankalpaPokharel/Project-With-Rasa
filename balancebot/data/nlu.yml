@@ -1,0 +1,27 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - Hello
+    - Hi
+    - Hey
+    - Hi there
+- intent: provide_account_info
+  examples: |
+    - My account number is [123456789](account_number) and my phone number is [555-555-5555](phone_number)
+- intent: check_balance
+  examples: |
+    - What's my current balance?
+    - Can you tell me my balance?
+    - How much money do I have?
+- intent: transaction_history
+  examples: |
+    - Show me my transaction history
+    - What are my recent transactions?
+    - Can you list my transactions?
+- intent: goodbye
+  examples: |
+    - Goodbye
+    - Bye
+    - See you later
+    - I'm done

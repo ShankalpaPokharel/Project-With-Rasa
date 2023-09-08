@@ -1,0 +1,60 @@
+version: "3.1"
+
+intents:
+  - greet
+  - provide_account_info
+  - check_balance
+  - transaction_history
+  - goodbye
+
+entities:
+  - account_number
+  - phone_number
+
+slots:
+  account_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: account_number
+  phone_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  # name:
+  #   type: text
+  #   mappings:
+  #     - type: from_text
+  # balance:
+  #   type: float
+  #   mappings:
+  #     - type: from_entity
+  #       entity: balance
+  # transaction_history:
+  #   type: list
+  #   mappings:
+  #     - type: from_entity
+  #       entity: transaction_history
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+  utter_ask_account_info:
+    - text: "Please provide your account number and phone number."
+  utter_account_verified:
+    - text: "Hello {name}! How can I assist you today?"
+  utter_ask_balance:
+    - text: "Your current balance is {balance}."
+  utter_transaction_history:
+    - text: "Here is your transaction history:\n{transaction_history}"
+  utter_goodbye:
+    - text: "Thank you for using our services. Have a great day!"
+  utter_iamabot:
+    - text: "I am a chatbot designed to assist you with your banking inquiries."
+
+
+actions:
+  - custom_actions.CustomActionVerifyAccount
+  - custom_actions.CustomActionGetBalance
+  - custom_actions.CustomActionGetTransactionHistory

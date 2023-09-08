@@ -1,0 +1,77 @@
+version: "3.1"
+
+stories:
+  - story: greet and check balance
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: check_balance
+      - action: utter_ask_account_info
+
+  - story: greet and check transaction history
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: transaction_history
+      - action: utter_ask_account_info
+
+  - story: provide account info and check balance
+    steps:
+      - intent: provide_account_info
+      - action: custom_actions.CustomActionVerifyAccount
+      - action: utter_balance_or_verify_error
+      - intent: check_balance
+      - action: custom_actions.CustomActionGetBalance
+      - action: utter_ask_balance
+
+  - story: provide account info and check transaction history
+    steps:
+      - intent: provide_account_info
+      - action: custom_actions.CustomActionVerifyAccount
+      - action: utter_balance_or_verify_error
+      - intent: transaction_history
+      - action: custom_actions.CustomActionGetTransactionHistory
+      - action: utter_transaction_history
+
+  - story: provide invalid account info
+    steps:
+      - intent: provide_account_info
+      - action: custom_actions.CustomActionVerifyAccount
+      - action: utter_balance_or_verify_error
+
+  - story: end conversation
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+
+
+# stories:
+#   - story: greet and provide account info
+#     steps:
+#       - intent: greet
+#       - action: utter_greet
+#       - intent: provide_account_info
+#       - action: custom_actions.CustomActionVerifyAccount
+#       - slot_was_set:
+#           - account_number: "123456789"
+#           - phone_number: "555-555-5555"
+#       - action: utter_account_verified
+
+#   - story: check balance
+#     steps:
+#       - intent: check_balance
+#       - action: custom_actions.CustomActionGetBalance
+#       - action: utter_ask_balance
+
+#   - story: check transaction history
+#     steps:
+#       - intent: transaction_history
+#       - action: custom_actions.CustomActionGetTransactionHistory
+#       - action: utter_transaction_history
+
+#   - story: end conversation
+#     steps:
+#       - intent: goodbye
+#       - action: utter_goodbye
+
