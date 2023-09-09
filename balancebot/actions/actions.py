@@ -74,10 +74,12 @@ class ActionCheckBalance(Action):
 
     def run(self, dispatcher, tracker, domain):
         account_number = tracker.get_slot("account_number")
+        phone_number = tracker.get_slot("phone_number")
 
-        if account_number in people:
+        if account_number in people and people[account_number]["phone_number"] == phone_number:
             balance = people[account_number]["balance"]
-            dispatcher.utter_message(f"Your current balance is ${balance:.2f}")
+            user_name = people[account_number]["name"]
+            dispatcher.utter_message(f"Dear {user_name} your {account_number} has balance of ${balance:.2f}")
         else:
             dispatcher.utter_message("Sorry, I couldn't find your account. Please provide valid information.")
 

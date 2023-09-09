@@ -1,60 +1,48 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - provide_account_info
-  - check_balance
-  - transaction_history
-  - goodbye
-
+- check_balance
+- goodbye
+- greet
+- provide_account_info
+- transaction_history
 entities:
-  - account_number
-  - phone_number
-
+- account_number
+- phone_number
 slots:
   account_number:
     type: text
     mappings:
-      - type: from_entity
-        entity: account_number
+    - type: from_entity
+      entity: account_number
   phone_number:
     type: text
     mappings:
-      - type: from_entity
-        entity: phone_number
-  # name:
-  #   type: text
-  #   mappings:
-  #     - type: from_text
-  # balance:
-  #   type: float
-  #   mappings:
-  #     - type: from_entity
-  #       entity: balance
-  # transaction_history:
-  #   type: list
-  #   mappings:
-  #     - type: from_entity
-  #       entity: transaction_history
-
+    - type: from_entity
+      entity: phone_number
 responses:
   utter_greet:
-    - text: "Hello! How can I assist you today?"
+  - text: Hello! How can I assist you today?
   utter_ask_account_info:
-    - text: "Please provide your account number and phone number."
+  - text: Please provide your account number and phone number.
   utter_account_verified:
-    - text: "Hello {name}! How can I assist you today?"
+  - text: Hello {name}! How can I assist you today?
   utter_ask_balance:
-    - text: "Your current balance is {balance}."
+  - text: Your current balance is {balance}.
   utter_transaction_history:
-    - text: "Here is your transaction history:\n{transaction_history}"
+  - text: |-
+      Here is your transaction history:
+      {transaction_history}
   utter_goodbye:
-    - text: "Thank you for using our services. Have a great day!"
-  utter_iamabot:
-    - text: "I am a chatbot designed to assist you with your banking inquiries."
-
-
+  - text: Thank you for using our services. Have a great day!
+  utter_balance_or_verify_error:
+  - text: I'm sorry, but I couldn't verify your account information. Please make sure you provided the correct details.
+ 
 actions:
-  - custom_actions.CustomActionVerifyAccount
-  - custom_actions.CustomActionGetBalance
-  - custom_actions.CustomActionGetTransactionHistory
+- utter_greet
+- utter_ask_account_info
+- action_verify_info
+- action_check_balance
+- action_transaction_history
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

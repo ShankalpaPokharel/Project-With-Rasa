@@ -6,6 +6,7 @@ nlu:
     - Hi
     - Hey
     - Hi there
+    - hi
 - intent: provide_account_info
   examples: |
     - My account number is [123456789](account_number) and my phone number is [555-555-5555](phone_number)
