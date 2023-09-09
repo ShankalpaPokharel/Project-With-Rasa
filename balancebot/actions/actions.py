@@ -5,7 +5,7 @@ people = {
     "123456789": {
         "name": "John Doe",
         "phone_number": "555-555-5555",
-        "balance": 1000.00,
+        "balance": 2155.00,
         "transaction_history": [
             {"date": "2023-09-08", "description": "Initial deposit", "amount": 1000.00},
             {"date": "2023-09-10", "description": "Coffee shop", "amount": -5.50},
@@ -16,7 +16,7 @@ people = {
     "987654321": {
         "name": "Jane Doe",
         "phone_number": "555-555-5556",
-        "balance": 1500.00,
+        "balance": 3425.00,
         "transaction_history": [
             {"date": "2023-09-08", "description": "Initial deposit", "amount": 1500.00},
             {"date": "2023-09-10", "description": "Restaurant", "amount": -30.00},
@@ -27,7 +27,7 @@ people = {
     "135792468": {
         "name": "Bob Smith",
         "phone_number": "555-555-5557",
-        "balance": 800.00,
+        "balance": 980.00,
         "transaction_history": [
             {"date": "2023-09-09", "description": "Initial deposit", "amount": 800.00},
             {"date": "2023-09-11", "description": "Bookstore", "amount": -20.00},
@@ -38,7 +38,7 @@ people = {
     "864209731": {
         "name": "Mary Johnson",
         "phone_number": "555-555-5558",
-        "balance": 2000.00,
+        "balance": 2395.00,
         "transaction_history": [
             {"date": "2023-09-10", "description": "Initial deposit", "amount": 2000.00},
             {"date": "2023-09-12", "description": "Clothing store", "amount": -80.00},
